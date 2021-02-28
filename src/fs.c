@@ -42,3 +42,21 @@ bool fs_create_directory(char *path) {
 
     return false;
 }
+
+bool fs_remove_directory(char *path) {
+    struct stat s = {0};
+    int stat_result = stat(path, &s);
+
+    if (stat_result == 0) {
+#ifdef _WIN32
+        int ret = _rmdir(path);
+#endif
+#ifdef __linux__
+        int ret = rmdir(path);
+#endif
+
+        return ret == 0;
+    }
+
+    return false;
+}

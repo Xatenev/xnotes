@@ -14,4 +14,6 @@ void fs_get_home_dir(char buf[]);
 
 bool fs_create_directory(char *path);
 
+bool fs_remove_directory(char *path);
+
 #endif 

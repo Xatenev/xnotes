@@ -1,4 +1,5 @@
 NAME=xn
+TEST_NAME=xn_test
 
 CC=gcc
 CFLAGS=-std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter
@@ -26,15 +27,19 @@ $(NAME): $(OBJ_FILES)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-test: $(SRC_FILES_WITHOUT_MAIN) $(TEST_FILES)
-	$(CC) $(CFLAGS) -o $(OBJ_DIR)/$@ $^ $(LDFLAGS)
-	rm -f $(OBJ_FILES)
-	./$(OBJ_DIR)/test
 
-.PHONY: clean run
+test: $(TEST_NAME)
+
+$(TEST_NAME): $(SRC_FILES_WITHOUT_MAIN) $(TEST_FILES)
+	$(CC) $(CFLAGS) -o $(OBJ_DIR)/$@ $^ $(LDFLAGS)
+
+.PHONY: clean run run-test
 
 clean:
-	rm -f $(OBJ_FILES) $(OBJ_DIR)/$(NAME)
+	rm -rf $(OBJ_DIR)/*
 
 run: all
 	./$(OBJ_DIR)/$(NAME) ${args}
+
+run-test: test
+	./$(OBJ_DIR)/$(TEST_NAME)
