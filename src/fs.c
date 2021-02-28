@@ -29,7 +29,6 @@ bool fs_create_directory(char *path) {
     struct stat s = {0};
     int stat_result = stat(path, &s);
 
-    printf("%d", stat_result);
     if (stat_result == -1) {
 #ifdef _WIN32
         _mkdir(path);
