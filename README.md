@@ -5,6 +5,10 @@ A command line note-taking application written in the C programming language.
 
     make
 
+# Compile with debug flags
+
+    make debug
+
 # Run
 
     make run
