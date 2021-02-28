@@ -11,15 +11,16 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
+#define HT    "    "
 
-typedef void (*ActionFunctionPointer)(void);
+typedef void (*ActionFunctionPointer)(App *app);
 
 typedef struct {
-    char *key;
-    ActionFunctionPointer fp;
+    char *keys[2];
+    ActionFunctionPointer call;
 } Action;
 
-void cli_usage(void);
+void cli_usage(App *app);
 
 Action cli_get_action(int argc, char *argv[]);
 

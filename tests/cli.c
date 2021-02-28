@@ -5,7 +5,7 @@
 #include "../vendor/acutest.h"
 
 #include "../src/cli.h"
-#include "../src/list.h"
+#include "../src/notes.h"
 
 #include "cli.h"
 
@@ -18,8 +18,9 @@ void test_cli_get_action(void) {
 
     Action action = cli_get_action(argc, argv);
 
-    TEST_CHECK(strcmp(action.key, "list") == 0);
-    TEST_CHECK(action.fp == list);
+    TEST_CHECK(strcmp(action.keys[0], "list") == 0);
+    TEST_CHECK(strcmp(action.keys[1], "l") == 0);
+    TEST_CHECK(action.call == notes_list);
 
     int argc2 = 1;
     char *argv2[]= {
@@ -28,6 +29,7 @@ void test_cli_get_action(void) {
 
     Action action2 = cli_get_action(argc2, argv2);
 
-    TEST_CHECK(action2.key == NULL);
-    TEST_CHECK(action2.fp == NULL);
+    TEST_CHECK(action2.keys[0] == NULL);
+    TEST_CHECK(action2.keys[1] == NULL);
+    TEST_CHECK(action2.call == NULL);
 }

@@ -1,7 +1,7 @@
 NAME=xn
 
 CC=gcc
-CFLAGS=-std=c99 -Wall -Wextra -Wpedantic
+CFLAGS=-std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter
 LDFLAGS=
 
 SRC_DIR=src

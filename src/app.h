@@ -2,7 +2,8 @@
 #define XNOTES_APP_H
 
 typedef struct {
-    int a;
+    int argc;
+    char **argv;
 } App;
 
 #endif
