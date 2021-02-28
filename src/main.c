@@ -3,12 +3,14 @@
 #include "cli.h"
 
 int main(int argc, char *argv[]) {
-    if(argc == 0) {
+    if(argc == 1) {
+        cli_usage();
         return 0;
     }
 
-    Action action = cli_get_action(argv);
+    Action action = cli_get_action(argc, argv);
 
-    printf("%s", action.key);
+    action.fp();
+
     return 0;
 }

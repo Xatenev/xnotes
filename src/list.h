@@ -3,6 +3,6 @@
 
 #include "app.h"
 
-void list(App *app);
+void list();
 
 #endif 
