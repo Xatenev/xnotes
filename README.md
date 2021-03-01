@@ -1,6 +1,11 @@
 # xnotes
 A command line note-taking application written in the C programming language.
 
+# Supported operating systems
+
+- Linux
+- Windows
+
 # Compile
 
     make
