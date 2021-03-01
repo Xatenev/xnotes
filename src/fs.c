@@ -34,7 +34,7 @@ bool fs_create_directory(char *path) {
         _mkdir(path);
 #endif
 #ifdef __linux__
-        mkdir(path, 0700);
+        mkdir(path, 0600);
 #endif
 
         return true;
