@@ -1,6 +1,6 @@
 # Custom
-.target/*
-!.target/.gitkeep
+target/*
+!target/.gitkeep
 
 # This project uses a Makefile, we add an empty CMakeLists.txt to get rid of the clion warning
 CMakeLists.txt
